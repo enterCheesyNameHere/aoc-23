@@ -17,6 +17,7 @@ int main() {
     ifstream FInput(PATH + "/input.txt");
     smatch match;
     int sum = 0;
+    int powerSum = 0;
 
     // Loop through each line
     while(!FInput.eof()) {
@@ -43,7 +44,7 @@ int main() {
 
 
         // Get shape data from each round and test if its possible
-        // Map will contain a color and the highest count of it  in the list
+        // Map will contain a color and the highest count of it in the list
         map<string, int> cubeData;
         regex cubeexp(R"((\d{1,3}) (\w{3,5}),?\s?)");
         for(auto &round : rounds) {
@@ -59,19 +60,18 @@ int main() {
             }
         }
 
+        powerSum += cubeData.at("red") * cubeData.at("green") * cubeData.at("blue");
+
         if (cubeData.at("red") > MAXRED ||
             cubeData.at("green") > MAXGREEN ||
             cubeData.at("blue") > MAXBLUE) {
-            cout << line;
-            cout << "Game " << gameID << " is impossible" << endl;
             continue;
         }
 
-        cout << line;
-        cout << "Game " << gameID << " is possible" << endl;
         sum += gameID;
     }
 
     cout << "Sum of possible game IDs: " << sum << endl;
+    cout << "Sum of the powers of each game is: " << powerSum << endl;
     return 0;
 }
