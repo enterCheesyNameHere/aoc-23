@@ -1,0 +1,11 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Day 4" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" WORKING_DIR="file://$PROJECT_DIR$/4/bin" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aoc-23" TARGET_NAME="day4.cpp" CONFIG_NAME="Day 4">
+    <option name="sourceFile" value="\\wsl$\Ubuntu\home\cheesy\repos\aoc-23\4\day4.cpp" />
+    <envs>
+      <env name="INPUTDIR" value="/home/cheesy/repos/aoc-23/4/input.txt" />
+    </envs>
+    <method v="2">
+      <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
+    </method>
+  </configuration>
+</component>
