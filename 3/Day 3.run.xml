@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Day 3" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/3/bin" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aoc-23" TARGET_NAME="dayThree.cpp - WSL" CONFIG_NAME="Day 3">
-    <option name="sourceFile" value="\\wsl$\Ubuntu\home\cheesy\repos\aoc-23\3\dayThree.cpp" />
+  <configuration default="false" name="Day 3" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" WORKING_DIR="file://$PROJECT_DIR$/3/bin" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aoc-23" TARGET_NAME="day3.cpp - WSL" CONFIG_NAME="Day 3">
+    <option name="sourceFile" value="\\wsl$\Ubuntu\home\cheesy\repos\aoc-23\3\day3.cpp" />
     <option name="toolchainName" value="WSL" />
     <envs>
       <env name="SOURCEDIR" value="/home/cheesy/repos/aoc-23/3" />
