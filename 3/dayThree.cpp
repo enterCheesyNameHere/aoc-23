@@ -9,12 +9,14 @@ using namespace std;
 const string PATH = getenv("SOURCEDIR");
 
 bool checkSymbols(vector<string> &arr, int row, int col);
+int checkGearRatio(vector<string> &arr, int row, int col);
 int findNumLength(string &line, int pos);
 
 int main() {
     ifstream FInput(PATH + "/input.txt");
     string line;
-    int sum = 0;
+    int partSum = 0;
+    int ratioSum = 0;
 
     // Get width
     getline(FInput, line);
@@ -39,30 +41,27 @@ int main() {
     FInput.close();
 
     for(int i = 0; i < length; i++) {
-        cout << "Row " << i + 1 << endl;
         for(int j = 0; j < width; j++) {
-            if(diagram[i][j] <= '9' && diagram[i][j] >= '0' && diagram[i][j] != '\n') {
+            if(isdigit(diagram[i][j])) {
                 int digitCnt = findNumLength(diagram[i], j);
                 string numStr = diagram[i].substr(j, digitCnt);
-                cout << "Target Char: " << diagram[i][j] << endl;
-                cout << "Digits found: " << digitCnt << endl;
-                cout << "Num string: " << numStr << endl;
 
                 for(int k = j; k < j + digitCnt; k++) {
                     if (checkSymbols(diagram, i, k)) {
-                        cout << "Found num: " << stoi(numStr) << endl;
-                        sum += stoi(numStr);
+                        partSum += stoi(numStr);
                         break;
                     }
                 }
 
-                cout << "Continuing search from char: " << diagram[i][j+digitCnt] << endl;
-                j += digitCnt;
+                j += digitCnt - 1;
+            } else if (diagram[i][j] == '*') {
+                ratioSum += checkGearRatio(diagram, i, j);
             }
         }
     }
 
-    cout << "Sum of part numbers: " << sum << endl;
+    cout << "Sum of part numbers: " << partSum << endl;
+    cout << "Sum of gear ratios: " << ratioSum << endl;
     return 0;
 }
 
@@ -74,7 +73,7 @@ bool checkSymbols(vector<string> &arr, int row, int col) {
         for(int j = max(col - 1, 0); j < min(col + 2, width); j++) {
             char val = arr[i][j];
 
-            if(val != '.' && ('0' > val || '9' < val) && val > ' ') {
+            if(val != '.' && not isdigit(arr[i][j]) && val > ' ') {
                 return true;
             }
         }
@@ -83,9 +82,36 @@ bool checkSymbols(vector<string> &arr, int row, int col) {
     return false;
 }
 
+int checkGearRatio(vector<string> &arr, int row, int col) {
+    int width = (int) arr[row].length();
+    int length = (int) arr.size();
+    vector<int> nums;
+
+    for(int i = max(row - 1, 0); i < min(row + 2, length); i++) {
+        for(int j = max(col - 1, 0); j < min(col + 2, width); j++) {
+            if(isdigit(arr[i][j])) {
+                // Find the first digit by iterating backwards until it finds a non-number
+                while(isdigit(arr[i][j-1])) {
+                    j--;
+                }
+
+                int digitCount = findNumLength(arr[i], j);
+                nums.push_back(stoi(arr[i].substr(j, digitCount)));
+                j += digitCount;
+            }
+        }
+    }
+
+    if (nums.size() == 2) {
+        return nums[0] * nums[1];
+    }
+
+    return 0;
+}
+
 int findNumLength(string &line, int pos) {
     for(int i = pos; i < line.length(); i++) {
-        if('0' > line[i] || '9' < line[i]) {
+        if(not isdigit(line[i])) {
 
             return i - pos;
         }
@@ -95,3 +121,4 @@ int findNumLength(string &line, int pos) {
     // return the length from pos to eol
     return (int) line.length() - pos;
 }
+
