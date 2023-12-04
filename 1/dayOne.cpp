@@ -21,18 +21,20 @@ const map<string, char> numWords = {
 };
 
 
-string checkForWords(string line, int index = 0);
+string checkForWords(const string &line, int index = 0);
 template<typename keyType, typename ValType> vector<keyType> getKeys(const map<keyType, ValType> &map);
+int findPartOneSum(const string &line); // Just so I can output both part 1 and part 2 answer, not actually needed
 
 int main() {
     ifstream FInput(PATH + "/input.txt");
     string line;
-    string num;
     int sum = 0;
+    int alphaSum = 0;
 
 
     while (!FInput.eof()) {
         FInput >> line;
+        string num = "00";
 
         // Find first number
         for (int i = 0; i < line.length(); i++) {
@@ -46,7 +48,7 @@ int main() {
         }
 
         // Find last number
-        for (int i = line.length() - 1; i >= 0; i--) {
+        for (int i = (int) line.length() - 1; i >= 0; i--) {
             if (line[i] > 48 && line[i] < 58) {
                 num[1] = line[i];
                 break;
@@ -56,16 +58,18 @@ int main() {
             }
         }
 
-        sum += stoi(num);
+        sum += findPartOneSum(line);
+        alphaSum += stoi(num);
     }
 
     cout << "The calibration code is " << sum << endl;
+    cout << "The calibration code including spelled numbers is " << alphaSum << endl;
     return 0;
 }
 
 // Checks for number words at a given index.
-// Returns the word it finds, or and empty string if there is no word
-string checkForWords(string line, int index) {
+// Returns the word it finds, or an empty string if there is no word
+string checkForWords(const string &line, int index) {
     vector<string> keys = getKeys(numWords);
     string firstWord;
 
@@ -89,4 +93,26 @@ vector<keyType> getKeys(const map<keyType, ValType> &map) {
     }
 
     return keys;
+}
+
+int findPartOneSum(const string &line) {
+    string num = "00";
+
+    // Find first number
+    for (int i = 0; i < line.length(); i++) {
+        if (line[i] > 48 && line[i] < 58) {
+            num[0] = line[i];
+            break;
+        }
+    }
+
+    // Find last number
+    for (int i = (int) line.length() - 1; i >= 0; i--) {
+        if (line[i] > 48 && line[i] < 58) {
+            num[1] = line[i];
+            break;
+        }
+    }
+
+     return stoi(num);
 }
