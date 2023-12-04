@@ -11,10 +11,10 @@
 using namespace std;
 
 
-const string PATH = getenv("SOURCEDIR");
+const string PATH = getenv("INPUTDIR");
 
 int main() {
-    ifstream FInput(PATH + "/input.txt");
+    ifstream FInput(PATH);
     smatch match;
     int sum = 0;
     int powerSum = 0;

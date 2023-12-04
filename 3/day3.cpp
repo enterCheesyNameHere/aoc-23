@@ -6,14 +6,14 @@
 
 using namespace std;
 
-const string PATH = getenv("SOURCEDIR");
+const string PATH = getenv("INPUTDIR");
 
 bool checkSymbols(vector<string> &arr, int row, int col);
 int checkGearRatio(vector<string> &arr, int row, int col);
 int findNumLength(string &line, int pos);
 
 int main() {
-    ifstream FInput(PATH + "/input.txt");
+    ifstream FInput(PATH);
     string line;
     int partSum = 0;
     int ratioSum = 0;

@@ -7,7 +7,7 @@
 using namespace std;
 
 // Set path to day 1 folder in the run config
-const string PATH = getenv("SOURCEDIR");
+const string PATH = getenv("INPUTDIR");
 const map<string, char> numWords = {
         {"one", '1'},
         {"two", '2'},
@@ -26,7 +26,7 @@ template<typename keyType, typename ValType> vector<keyType> getKeys(const map<k
 int findPartOneSum(const string &line); // Just so I can output both part 1 and part 2 answer, not actually needed
 
 int main() {
-    ifstream FInput(PATH + "/input.txt");
+    ifstream FInput(PATH);
     string line;
     int sum = 0;
     int alphaSum = 0;

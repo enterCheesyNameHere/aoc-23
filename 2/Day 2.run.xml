@@ -3,7 +3,7 @@
     <option name="sourceFile" value="\\wsl$\Ubuntu\home\cheesy\repos\aoc-23\2\day2.cpp" />
     <option name="toolchainName" value="WSL" />
     <envs>
-      <env name="SOURCEDIR" value="/home/cheesy/repos/aoc-23/2" />
+      <env name="INPUTDIR" value="/home/cheesy/repos/aoc-23/2/input.txt" />
     </envs>
     <method v="2">
       <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
