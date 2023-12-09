@@ -4,6 +4,10 @@
 using namespace std;
 
 int main() {
+    cout << "Building Days..." << endl;
+    system("../builddays.bash");
+    system("clear");
+
     DAY_INPUT:
     string choice;
     cout << "What day would you like to run? (0 to exit)" << endl;

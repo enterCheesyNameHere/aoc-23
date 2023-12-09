@@ -2,7 +2,6 @@
   <configuration default="false" name="Advent of Code 2023" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="true" WORKING_DIR="file://$PROJECT_DIR$/bin" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aoc-23" TARGET_NAME="aoc.cpp" CONFIG_NAME="Advent of Code 2023">
     <option name="sourceFile" value="\\wsl$\Ubuntu\home\cheesy\repos\aoc-23\aoc.cpp" />
     <method v="2">
-      <option name="ToolBeforeRunTask" enabled="true" actionId="Tool_External Tools_Build Days" />
       <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
     </method>
   </configuration>
